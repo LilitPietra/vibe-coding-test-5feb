@@ -1,0 +1,40 @@
+{
+  "name": "cursor-component",
+  "version": "1.0.0",
+  "description": "A lightweight, accessible UI utility for custom cursor behavior",
+  "main": "dist/cursor.js",
+  "types": "dist/cursor.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean"
+  },
+  "keywords": [
+    "cursor",
+    "custom-cursor",
+    "ui",
+    "accessibility",
+    "a11y",
+    "typescript",
+    "framework-agnostic"
+  ],
+  "author": "Lilit Petrosyan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LilitPietra/cursor-component"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

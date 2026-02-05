@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive demo of the Cursor UI component with accessibility features">
+  <title>Cursor Component Demo - Accessible Custom Cursor</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../src/cursor.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✨ Cursor Component</h1>
+      <p>Lightweight, accessible UI utility for custom cursor behavior</p>
+    </header>
+
+    <div class="content">
+      <!-- Touch Device Warning -->
+      <div id="touchWarning" class="info-banner warning" style="display: none;">
+        <h3>⚠️ Touch Device Detected</h3>
+        <p>Custom cursor is automatically disabled on touch devices for better usability.</p>
+      </div>
+
+      <!-- Reduced Motion Notice -->
+      <div id="reducedMotionNotice" class="info-banner" style="display: none;">
+        <h3>♿ Reduced Motion Enabled</h3>
+        <p>Animations are disabled because you have "prefers-reduced-motion" enabled in your system settings.</p>
+      </div>
+
+      <!-- Instructions -->
+      <div class="info-banner">
+        <h3>📖 How to Use</h3>
+        <p>
+          Move your mouse around to see the custom cursor. 
+          Use the controls below to change cursor states and sizes. 
+          Try keyboard navigation (Tab key) to see focus-visible state.
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <h2>⚙️ Cursor Controls</h2>
+
+        <div class="control-group">
+          <h3>Cursor States</h3>
+          <div class="button-grid">
+            <button class="btn btn-default active" data-state="default">Default</button>
+            <button class="btn btn-hover" data-state="hover">Hover</button>
+            <button class="btn btn-active" data-state="active">Active</button>
+            <button class="btn btn-focus" data-state="focus-visible">Focus Visible</button>
+            <button class="btn btn-disabled" data-state="disabled">Disabled</button>
+            <button class="btn btn-loading" data-state="loading">Loading</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Cursor Size</h3>
+          <div class="size-controls">
+            <label for="sizeSelect">Size:</label>
+            <select id="sizeSelect">
+              <option value="small">Small (12px)</option>
+              <option value="medium" selected>Medium (18px)</option>
+              <option value="large">Large (26px)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Settings</h3>
+          <div class="toggle-controls">
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="enableToggle" checked>
+                <span class="slider"></span>
+              </label>
+              <label for="enableToggle">Enable Cursor</label>
+            </div>
+
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="focusTrackingToggle" checked>
+                <span class="slider"></span>
+              </label>
+              <label for="focusTrackingToggle">Track Keyboard Focus</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Demo Section -->
+      <div class="demo-section">
+        <h2>🎯 Interactive Elements Demo</h2>
+        <p>Hover over and interact with these elements to see how the cursor behaves:</p>
+        
+        <div class="interactive-elements">
+          <button class="btn">Click Me</button>
+          <button class="btn">Another Button</button>
+          <a href="#demo">Link Example</a>
+          <input type="text" placeholder="Type something...">
+          <textarea placeholder="Text area..." rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Status Display -->
+      <div class="status-display">
+        <h3>📊 Current Status</h3>
+        <div class="status-grid">
+          <div class="status-item">
+            <label>State:</label>
+            <div class="value" id="currentState">default</div>
+          </div>
+          <div class="status-item">
+            <label>Size:</label>
+            <div class="value" id="currentSize">medium</div>
+          </div>
+          <div class="status-item">
+            <label>Enabled:</label>
+            <div class="value" id="currentEnabled">Yes</div>
+          </div>
+          <div class="status-item">
+            <label>Position:</label>
+            <div class="value" id="currentPosition">0, 0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessibility Features -->
+      <div class="demo-section">
+        <h2>♿ Accessibility Features</h2>
+        <ul style="color: #6b7280; line-height: 1.8; padding-left: 1.5rem;">
+          <li><strong>Keyboard Navigation:</strong> Press Tab to navigate. Custom cursor highlights focused elements.</li>
+          <li><strong>Screen Reader Support:</strong> Important state changes are announced to screen readers.</li>
+          <li><strong>Reduced Motion:</strong> Respects system "prefers-reduced-motion" settings.</li>
+          <li><strong>Touch Device Detection:</strong> Automatically disabled on touch-only devices.</li>
+          <li><strong>Focus Visible:</strong> Clear focus indicators for keyboard users.</li>
+          <li><strong>OS Cursor Fallback:</strong> Native cursor remains functional on unsupported contexts.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>Built with ❤️ by <a href="https://github.com/LilitPietra" target="_blank" rel="noopener">Lilit Petrosyan</a></p>
+      <p>Framework-agnostic • Accessible • Performance-optimized</p>
+    </footer>
+  </div>
+
+  <!-- Demo Script -->
+  <script type="module">
+    // Import cursor (in production, you'd compile TypeScript first)
+    // For demo purposes, we'll include the compiled JS
+    
+    // Since we can't compile TS on-the-fly, we'll add instructions in the demo
+    // In a real scenario, you'd run: tsc && then include the compiled JS
+    
+    // For now, let's create a minimal inline implementation for the demo
+    class Cursor {
+      constructor(options = {}) {
+        this.options = {
+          size: 'medium',
+          initialState: 'default',
+          enabled: true,
+          disableOnTouch: true,
+          trackFocus: true,
+          zIndex: 9999,
+          ...options
+        };
+        
+        this.currentState = this.options.initialState;
+        this.currentSize = this.options.size;
+        this.currentPosition = { x: 0, y: 0 };
+        this.isEnabled = this.options.enabled;
+        this.isMounted = false;
+        this.rafId = null;
+        this.eventListeners = new Map();
+        
+        if (this.options.disableOnTouch && this.isTouchDevice()) {
+          this.isEnabled = false;
+        }
+      }
+      
+      mount(container = document.body) {
+        if (this.isMounted || !this.isEnabled) return;
+        
+        this.element = document.createElement('div');
+        this.element.className = 'custom-cursor';
+        this.element.setAttribute('data-state', this.currentState);
+        this.element.setAttribute('data-size', this.currentSize);
+        this.element.setAttribute('aria-hidden', 'true');
+        this.element.style.zIndex = this.options.zIndex;
+        
+        container.appendChild(this.element);
+        this.setupEventListeners();
+        document.body.classList.add('custom-cursor-active');
+        this.isMounted = true;
+        
+        if (this.options.trackFocus) {
+          this.setupFocusTracking();
+        }
+      }
+      
+      destroy() {
+        if (!this.isMounted) return;
+        
+        this.removeEventListeners();
+        if (this.element && this.element.parentElement) {
+          this.element.parentElement.removeChild(this.element);
+        }
+        if (this.rafId !== null) {
+          cancelAnimationFrame(this.rafId);
+        }
+        document.body.classList.remove('custom-cursor-active');
+        this.isMounted = false;
+      }
+      
+      setState(state) {
+        if (this.currentState === state || !this.element) return;
+        
+        const previousState = this.currentState;
+        this.currentState = state;
+        this.element.setAttribute('data-state', state);
+        
+        const event = new CustomEvent('statechange', {
+          detail: { previousState, currentState: state, timestamp: Date.now() }
+        });
+        this.element.dispatchEvent(event);
+      }
+      
+      getState() {
+        return this.currentState;
+      }
+      
+      setSize(size) {
+        if (this.currentSize === size || !this.element) return;
+        this.currentSize = size;
+        this.element.setAttribute('data-size', size);
+      }
+      
+      getSize() {
+        return this.currentSize;
+      }
+      
+      setPosition(x, y) {
+        this.currentPosition = { x, y };
+        this.updatePosition();
+      }
+      
+      enable() {
+        this.isEnabled = true;
+        if (this.element) {
+          this.element.classList.remove('hidden');
+          document.body.classList.add('custom-cursor-active');
+        }
+      }
+      
+      disable() {
+        this.isEnabled = false;
+        if (this.element) {
+          this.element.classList.add('hidden');
+          document.body.classList.remove('custom-cursor-active');
+        }
+      }
+      
+      isActive() {
+        return this.isEnabled && this.isMounted;
+      }
+      
+      setupEventListeners() {
+        const handleMouseMove = (e) => {
+          this.currentPosition = { x: e.clientX, y: e.clientY };
+          this.scheduleUpdate();
+        };
+        
+        const handleMouseDown = () => {
+          if (this.currentState !== 'disabled') {
+            this.setState('active');
+          }
+        };
+        
+        const handleMouseUp = () => {
+          if (this.currentState === 'active') {
+            this.setState('default');
+          }
+        };
+        
+        const handleMouseEnter = (e) => {
+          const target = e.target;
+          if (target.matches('button, a, [role="button"], input, textarea, select')) {
+            if (this.currentState === 'default') {
+              this.setState('hover');
+            }
+          }
+        };
+        
+        const handleMouseLeave = (e) => {
+          const target = e.target;
+          if (target.matches('button, a, [role="button"], input, textarea, select')) {
+            if (this.currentState === 'hover') {
+              this.setState('default');
+            }
+          }
+        };
+        
+        document.addEventListener('mousemove', handleMouseMove, { passive: true });
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('mouseenter', handleMouseEnter, true);
+        document.addEventListener('mouseleave', handleMouseLeave, true);
+        
+        this.eventListeners.set('mousemove', handleMouseMove);
+        this.eventListeners.set('mousedown', handleMouseDown);
+        this.eventListeners.set('mouseup', handleMouseUp);
+        this.eventListeners.set('mouseenter', handleMouseEnter);
+        this.eventListeners.set('mouseleave', handleMouseLeave);
+      }
+      
+      setupFocusTracking() {
+        const handleFocusIn = (e) => {
+          const target = e.target;
+          if (this.isFocusVisible(target)) {
+            this.setState('focus-visible');
+            const rect = target.getBoundingClientRect();
+            this.setPosition(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          }
+        };
+        
+        const handleFocusOut = () => {
+          if (this.currentState === 'focus-visible') {
+            this.setState('default');
+          }
+        };
+        
+        document.addEventListener('focusin', handleFocusIn);
+        document.addEventListener('focusout', handleFocusOut);
+        
+        this.eventListeners.set('focusin', handleFocusIn);
+        this.eventListeners.set('focusout', handleFocusOut);
+      }
+      
+      removeEventListeners() {
+        this.eventListeners.forEach((listener, eventName) => {
+          if (eventName === 'mouseenter' || eventName === 'mouseleave') {
+            document.removeEventListener(eventName, listener, true);
+          } else {
+            document.removeEventListener(eventName, listener);
+          }
+        });
+        this.eventListeners.clear();
+      }
+      
+      scheduleUpdate() {
+        if (this.rafId !== null) return;
+        this.rafId = requestAnimationFrame(() => {
+          this.updatePosition();
+          this.rafId = null;
+        });
+      }
+      
+      updatePosition() {
+        if (!this.element) return;
+        const { x, y } = this.currentPosition;
+        this.element.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      }
+      
+      isTouchDevice() {
+        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      }
+      
+      isFocusVisible(element) {
+        try {
+          return element.matches(':focus-visible');
+        } catch {
+          return element.matches(':focus');
+        }
+      }
+      
+      on(eventName, callback) {
+        if (this.element) {
+          this.element.addEventListener(eventName, callback);
+        }
+      }
+      
+      off(eventName, callback) {
+        if (this.element) {
+          this.element.removeEventListener(eventName, callback);
+        }
+      }
+    }
+    
+    // Initialize cursor
+    const cursor = new Cursor({
+      size: 'medium',
+      initialState: 'default',
+      enabled: true,
+      disableOnTouch: true,
+      trackFocus: true
+    });
+    
+    cursor.mount();
+    
+    // Check for touch device
+    if (cursor.isTouchDevice()) {
+      document.getElementById('touchWarning').style.display = 'block';
+    }
+    
+    // Check for reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.getElementById('reducedMotionNotice').style.display = 'block';
+    }
+    
+    // State buttons
+    const stateButtons = document.querySelectorAll('[data-state]');
+    stateButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const state = button.getAttribute('data-state');
+        cursor.setState(state);
+        
+        // Update active button
+        stateButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+    
+    // Size select
+    const sizeSelect = document.getElementById('sizeSelect');
+    sizeSelect.addEventListener('change', (e) => {
+      cursor.setSize(e.target.value);
+    });
+    
+    // Enable toggle
+    const enableToggle = document.getElementById('enableToggle');
+    enableToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        cursor.enable();
+      } else {
+        cursor.disable();
+      }
+    });
+    
+    // Update status display
+    function updateStatus() {
+      document.getElementById('currentState').textContent = cursor.getState();
+      document.getElementById('currentSize').textContent = cursor.getSize();
+      document.getElementById('currentEnabled').textContent = cursor.isActive() ? 'Yes' : 'No';
+      document.getElementById('currentPosition').textContent = 
+        `${Math.round(cursor.currentPosition.x)}, ${Math.round(cursor.currentPosition.y)}`;
+    }
+    
+    // Listen for state changes
+    cursor.on('statechange', updateStatus);
+    
+    // Update position display
+    document.addEventListener('mousemove', () => {
+      requestAnimationFrame(updateStatus);
+    });
+    
+    // Initial update
+    updateStatus();
+    
+    // Log to console
+    console.log('Cursor component initialized!', cursor);
+    console.log('Try changing states and sizes using the controls above.');
+  </script>
+</body>
+</html>
