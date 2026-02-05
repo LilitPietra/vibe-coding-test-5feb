@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cursor Component - A lightweight, accessible UI utility for custom cursor behavior">
-  <title>Cursor Component - Accessible Custom Cursor UI</title>
+  <meta name="description" content="Artisan Clay Studio - Handcrafted pottery pieces made with love and care">
+  <title>Artisan Clay Studio - Handmade Pottery & Ceramics</title>
   
   <!-- Styles -->
   <link rel="stylesheet" href="src/cursor.css">
@@ -20,7 +20,7 @@
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
       color: #333;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #8B7355 0%, #C9A882 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -107,7 +107,7 @@
 
     .btn-primary {
       background: white;
-      color: #667eea;
+      color: #8B7355;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
@@ -124,7 +124,7 @@
 
     .btn-secondary:hover {
       background: white;
-      color: #667eea;
+      color: #8B7355;
       transform: translateY(-3px);
     }
 
@@ -172,8 +172,8 @@
 
     .feature-card:hover {
       transform: translateY(-5px);
-      border-color: #667eea;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+      border-color: #8B7355;
+      box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
     }
 
     .feature-icon {
@@ -195,8 +195,92 @@
     /* Interactive Demo Section */
     .demo-section {
       padding: 5rem 2rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #8B7355 0%, #C9A882 100%);
       color: white;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 35px rgba(139, 115, 85, 0.3);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #E8DDD0 0%, #D4C4B0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    }
+
+    .product-info {
+      padding: 2rem;
+    }
+
+    .product-info h3 {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-info p {
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .product-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #8B7355;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-btn {
+      width: 100%;
+      padding: 1rem;
+      background: #8B7355;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .product-btn:hover {
+      background: #6F5B43;
+      transform: scale(1.02);
     }
 
     .demo-container {
@@ -236,13 +320,13 @@
 
     .state-btn:hover {
       background: white;
-      color: #667eea;
+      color: #8B7355;
       transform: scale(1.05);
     }
 
     .state-btn.active {
       background: white;
-      color: #667eea;
+      color: #8B7355;
     }
 
     /* Footer */
@@ -254,7 +338,7 @@
     }
 
     footer a {
-      color: #667eea;
+      color: #C9A882;
       text-decoration: none;
       font-weight: 600;
     }
@@ -379,56 +463,138 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>✨ Cursor Component</h1>
-      <p>A lightweight, accessible UI utility for custom cursor behavior. Built with TypeScript, designed for everyone.</p>
+      <h1>🏺 Artisan Clay Studio</h1>
+      <p>Handcrafted pottery pieces made with love and care. Each piece tells a unique story of artistry and tradition.</p>
       <div class="cta-buttons">
-        <a href="demo/" class="btn btn-primary">Try Interactive Demo</a>
-        <a href="https://github.com/LilitPietra/vibe-coding-test-5feb" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
+        <a href="#products" class="btn btn-primary">Shop Collection</a>
+        <a href="#about" class="btn btn-secondary">Our Story</a>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features">
+  <section class="features" id="about">
     <div class="features-container">
-      <h2 class="section-title">Why Cursor Component?</h2>
-      <p class="section-subtitle">Built with modern web standards and accessibility in mind</p>
+      <h2 class="section-title">Why Choose Artisan Clay?</h2>
+      <p class="section-subtitle">Every piece is crafted with passion and attention to detail</p>
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Lightning Fast</h3>
-          <p>RAF-based updates and CSS transforms ensure 60fps performance even on lower-end devices.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">♿</div>
-          <h3>Fully Accessible</h3>
-          <p>Keyboard navigation, screen reader support, reduced motion, and auto-disable on touch devices.</p>
-        </div>
-
-        <div class="feature-card">
           <div class="feature-icon">🎨</div>
-          <h3>Easily Themeable</h3>
-          <p>CSS custom properties let you customize colors, sizes, and animations to match your brand.</p>
+          <h3>Handcrafted</h3>
+          <p>Each piece is individually thrown and shaped by skilled artisans, making every item truly unique.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>Zero Dependencies</h3>
-          <p>Pure TypeScript with no external dependencies. Works with any framework or vanilla JS.</p>
+          <div class="feature-icon">🌿</div>
+          <h3>Eco-Friendly</h3>
+          <p>Made with sustainably sourced clay and non-toxic glazes. Safe for you and the environment.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🔧</div>
-          <h3>Developer Friendly</h3>
-          <p>Clean API, full TypeScript support, comprehensive documentation, and helpful examples.</p>
+          <div class="feature-icon">✨</div>
+          <h3>Unique Designs</h3>
+          <p>Original designs inspired by nature and traditional techniques passed down through generations.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Framework Agnostic</h3>
-          <p>Use with React, Vue, Angular, Svelte, or plain JavaScript. It just works everywhere.</p>
+          <div class="feature-icon">🏺</div>
+          <h3>Functional Art</h3>
+          <p>Beautiful pieces that are both decorative and practical for everyday use in your home.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💝</div>
+          <h3>Perfect Gifts</h3>
+          <p>Thoughtfully crafted pieces that make meaningful gifts for loved ones and special occasions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Built to Last</h3>
+          <p>High-fired ceramics that are durable, dishwasher safe, and designed to be treasured for years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="features" id="products" style="background: #f5f5f5;">
+    <div class="features-container">
+      <h2 class="section-title">Featured Collection</h2>
+      <p class="section-subtitle">Explore our handpicked selection of artisan pottery</p>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            🏺
+          </div>
+          <div class="product-info">
+            <h3>Rustic Vase</h3>
+            <p>A beautifully textured vase with earthy tones, perfect for displaying fresh flowers or as a standalone centerpiece.</p>
+            <div class="product-price">$48.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            ☕
+          </div>
+          <div class="product-info">
+            <h3>Artisan Mug Set</h3>
+            <p>Set of 4 handcrafted mugs with unique glaze patterns. Each mug holds 12oz and features a comfortable handle.</p>
+            <div class="product-price">$64.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            🍜
+          </div>
+          <div class="product-info">
+            <h3>Ceramic Bowl</h3>
+            <p>Large serving bowl with smooth interior glaze and textured exterior. Ideal for salads, pasta, or fruit.</p>
+            <div class="product-price">$52.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            🍽️
+          </div>
+          <div class="product-info">
+            <h3>Dinner Plate Set</h3>
+            <p>Set of 6 dinner plates with elegant minimalist design. Microwave and dishwasher safe for everyday use.</p>
+            <div class="product-price">$96.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            🫖
+          </div>
+          <div class="product-info">
+            <h3>Teapot</h3>
+            <p>Handthrown teapot with infuser and drip-free spout. Holds 32oz and features a comfortable curved handle.</p>
+            <div class="product-price">$78.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            🌱
+          </div>
+          <div class="product-info">
+            <h3>Planter Trio</h3>
+            <p>Set of 3 planters in graduated sizes with drainage holes. Perfect for succulents, herbs, or small plants.</p>
+            <div class="product-price">$42.00</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
@@ -437,8 +603,8 @@
   <!-- Interactive Demo Section -->
   <section class="demo-section">
     <div class="demo-container">
-      <h2 class="section-title">Try It Live</h2>
-      <p class="section-subtitle">Move your mouse around and click the buttons to see different cursor states</p>
+      <h2 class="section-title">Experience Interactive Shopping</h2>
+      <p class="section-subtitle">Notice something special? Our custom cursor enhances your browsing experience!</p>
 
       <div id="touchNotice" class="touch-notice">
         ⚠️ <strong>Touch Device Detected:</strong> Custom cursor is automatically disabled on touch devices for better usability.
@@ -446,40 +612,43 @@
 
       <div class="demo-area">
         <p style="font-size: 1.5rem; margin-bottom: 2rem;">
-          Hover over these buttons to see the cursor in action!
+          Move your mouse around and interact with elements to see the cursor change
         </p>
         
         <div class="state-buttons">
-          <button class="state-btn active" data-state="default">Default</button>
-          <button class="state-btn" data-state="hover">Hover</button>
-          <button class="state-btn" data-state="active">Active</button>
-          <button class="state-btn" data-state="focus-visible">Focus</button>
-          <button class="state-btn" data-state="disabled">Disabled</button>
-          <button class="state-btn" data-state="loading">Loading</button>
+          <button class="state-btn active" data-state="default">Browse</button>
+          <button class="state-btn" data-state="hover">Hover Products</button>
+          <button class="state-btn" data-state="active">Click</button>
+          <button class="state-btn" data-state="focus-visible">Navigate</button>
+          <button class="state-btn" data-state="disabled">Out of Stock</button>
+          <button class="state-btn" data-state="loading">Adding to Cart</button>
         </div>
 
         <p style="margin-top: 2rem; opacity: 0.9;">
-          Current State: <strong id="currentState">default</strong>
+          Current Cursor Mode: <strong id="currentState">default</strong>
         </p>
       </div>
 
-      <a href="demo/" class="btn btn-primary" style="margin-top: 2rem;">View Full Demo</a>
+      <a href="demo/" class="btn btn-primary" style="margin-top: 2rem;">View Technical Demo</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="footer-links">
-      <a href="https://github.com/LilitPietra/vibe-coding-test-5feb" target="_blank" rel="noopener">GitHub</a>
-      <a href="demo/">Interactive Demo</a>
-      <a href="https://github.com/LilitPietra/vibe-coding-test-5feb#readme" target="_blank" rel="noopener">Documentation</a>
-      <a href="https://github.com/LilitPietra/vibe-coding-test-5feb/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      <a href="#products">Shop</a>
+      <a href="#about">About Us</a>
+      <a href="https://github.com/LilitPietra/vibe-coding-test-5feb" target="_blank" rel="noopener">View Source Code</a>
+      <a href="demo/">Technical Demo</a>
     </div>
     <p style="margin-top: 2rem; opacity: 0.8;">
-      Built with ❤️ by <a href="https://github.com/LilitPietra" target="_blank" rel="noopener">Lilit Petrosyan</a>
+      Handcrafted with ❤️ by <a href="https://github.com/LilitPietra" target="_blank" rel="noopener">Artisan Clay Studio</a>
     </p>
     <p style="margin-top: 1rem; opacity: 0.6;">
-      Framework-agnostic • Accessible • Performance-optimized
+      Sustainable • Unique • Made to Last
+    </p>
+    <p style="margin-top: 0.5rem; opacity: 0.5; font-size: 0.9rem;">
+      This site features custom cursor interactions • Built by Lilit Petrosyan
     </p>
   </footer>
 
