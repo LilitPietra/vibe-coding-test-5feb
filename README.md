@@ -7,6 +7,7 @@ A lightweight, accessible UI utility for custom cursor behavior across web appli
 - **Multiple States**: Default, hover, active, focus-visible, disabled, and loading
 - **Accessible**: Full keyboard navigation support, screen reader announcements, and reduced motion respect
 - **Performance**: RAF-based position updates and CSS transform animations
+- **Enhanced Animations**: Smooth pulse effects on hover and ripple effects on active state
 - **Touch-Aware**: Automatically detects and disables on touch devices
 - **Themeable**: CSS custom properties for easy customization
 - **Framework-Agnostic**: Works with any JavaScript framework or vanilla JS
