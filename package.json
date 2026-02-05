@@ -1,7 +1,7 @@
 {
-  "name": "cursor-component",
+  "name": "artisan-clay-studio",
   "version": "1.0.0",
-  "description": "A lightweight, accessible UI utility for custom cursor behavior",
+  "description": "Artisan Clay Studio - Interactive pottery showcase with custom cursor component",
   "main": "dist/cursor.js",
   "types": "dist/cursor.d.ts",
   "scripts": {
@@ -11,19 +11,21 @@
     "prebuild": "npm run clean"
   },
   "keywords": [
-    "cursor",
+    "pottery",
+    "artisan",
+    "handmade",
+    "ceramics",
+    "e-commerce",
     "custom-cursor",
     "ui",
     "accessibility",
-    "a11y",
-    "typescript",
-    "framework-agnostic"
+    "typescript"
   ],
-  "author": "Lilit Petrosyan",
+  "author": "Lilit Petrosyan - Artisan Clay Studio",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LilitPietra/cursor-component"
+    "url": "https://github.com/LilitPietra/vibe-coding-test-5feb"
   },
   "devDependencies": {
     "typescript": "^5.3.3"

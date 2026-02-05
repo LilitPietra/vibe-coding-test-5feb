@@ -1,6 +1,6 @@
-# Cursor Component
+# Artisan Clay Studio - Interactive Shopping Experience
 
-A lightweight, accessible UI utility for custom cursor behavior across web applications. Built with vanilla TypeScript and designed to be framework-agnostic.
+Welcome to Artisan Clay Studio's interactive website featuring a custom cursor component that enhances the browsing and shopping experience. Built with vanilla TypeScript and designed to be framework-agnostic.
 
 ## Features
 
@@ -12,9 +12,11 @@ A lightweight, accessible UI utility for custom cursor behavior across web appli
 - **Themeable**: CSS custom properties for easy customization
 - **Framework-Agnostic**: Works with any JavaScript framework or vanilla JS
 
-## Demo
+## Live Demo
 
-Open `demo/index.html` in your browser to see an interactive demonstration of all cursor states and features.
+Visit our live site at **https://lilitpietra.github.io/vibe-coding-test-5feb/** to experience Artisan Clay Studio's handmade pottery collection with custom cursor interactions.
+
+For a technical demonstration of all cursor states and features, open `demo/index.html` in your browser.
 
 ## Installation
 
@@ -436,12 +438,14 @@ Contributions are welcome! Please follow these guidelines:
 
 MIT License - feel free to use in personal and commercial projects.
 
+## About Artisan Clay Studio
+
+Artisan Clay Studio showcases handcrafted pottery pieces made with love and care. Each piece tells a unique story of artistry and tradition. This website features custom cursor interactions to enhance the browsing experience.
+
 ## Credits
 
-Created by [Lilit Petrosyan](https://github.com/LilitPietra)
-
-Based on the CURSOR.md design specification.
+Website and custom cursor component created by [Lilit Petrosyan](https://github.com/LilitPietra)
 
 ---
 
-**Made with ❤️ for better web experiences**
+**Made with ❤️ for Artisan Clay Studio**
