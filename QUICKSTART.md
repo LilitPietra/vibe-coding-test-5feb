@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with the Cursor component in minutes!
+Get up and running with the Artisan Clay Studio website and its custom cursor component in minutes!
 
 ## 📦 Installation
 
@@ -28,13 +28,17 @@ npm run build
 
 This creates the compiled files in the `dist/` directory.
 
-## 🎨 View the Demo
+## 🎨 View the Site
 
-### Option 1: Direct File Open
+### Option 1: View Live Site
 
-Simply open `demo/index.html` in your web browser.
+Visit **https://lilitpietra.github.io/vibe-coding-test-5feb/** to see the Artisan Clay Studio pottery showcase.
 
-### Option 2: Local Server (Recommended)
+### Option 2: Direct File Open
+
+Simply open `index.html` in your web browser to view the main site, or `demo/index.html` for the technical demo.
+
+### Option 3: Local Server (Recommended for Development)
 
 For a better development experience, use a local server:
 
@@ -49,7 +53,9 @@ npx http-server
 php -S localhost:8000
 ```
 
-Then visit: `http://localhost:8000/demo/`
+Then visit: 
+- Main site: `http://localhost:8000/`
+- Technical demo: `http://localhost:8000/demo/`
 
 ## 💻 Basic Usage
 
@@ -148,6 +154,6 @@ npm run clean && npm run build
 
 ## 🎉 You're Ready!
 
-Start building amazing experiences with your custom cursor!
+Explore the Artisan Clay Studio pottery collection with enhanced cursor interactions!
 
-For questions or issues, check the main [README.md](README.md) or open an issue on GitHub.
+For technical details about the cursor component or questions, check the main [README.md](README.md) or open an issue on GitHub.
