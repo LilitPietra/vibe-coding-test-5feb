@@ -15,6 +15,11 @@ export type CursorState =
 export type CursorSize = 'small' | 'medium' | 'large';
 
 /**
+ * Cursor shape options
+ */
+export type CursorShape = 'circle' | 'square' | 'rounded-square' | 'arrow' | 'pointer';
+
+/**
  * Configuration options for the Cursor component
  */
 export interface CursorOptions {
@@ -23,6 +28,12 @@ export interface CursorOptions {
    * @default 'medium'
    */
   size?: CursorSize;
+
+  /**
+   * Cursor shape
+   * @default 'circle'
+   */
+  shape?: CursorShape;
 
   /**
    * Initial cursor state
