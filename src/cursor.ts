@@ -2,6 +2,7 @@ import type {
   CursorOptions,
   CursorState,
   CursorSize,
+  CursorShape,
   Position,
   CursorStateChangeEvent,
 } from './types';
@@ -20,6 +21,7 @@ export class Cursor {
   private element: HTMLDivElement | null = null;
   private currentState: CursorState = 'default';
   private currentSize: CursorSize = 'medium';
+  private currentShape: CursorShape = 'circle';
   private currentPosition: Position = { x: 0, y: 0 };
   private rafId: number | null = null;
   private isEnabled: boolean = true;
@@ -29,6 +31,7 @@ export class Cursor {
   private readonly options: Required<CursorOptions>;
   private readonly defaultOptions: Required<CursorOptions> = {
     size: 'medium',
+    shape: 'circle',
     initialState: 'default',
     enabled: true,
     disableOnTouch: true,
@@ -41,6 +44,7 @@ export class Cursor {
   constructor(options: CursorOptions = {}) {
     this.options = { ...this.defaultOptions, ...options };
     this.currentSize = this.options.size;
+    this.currentShape = this.options.shape;
     this.currentState = this.options.initialState;
     this.isEnabled = this.options.enabled;
 
@@ -161,6 +165,25 @@ export class Cursor {
   }
 
   /**
+   * Set cursor shape
+   */
+  public setShape(shape: CursorShape): void {
+    if (this.currentShape === shape || !this.element) {
+      return;
+    }
+
+    this.currentShape = shape;
+    this.element.setAttribute('data-shape', shape);
+  }
+
+  /**
+   * Get current cursor shape
+   */
+  public getShape(): CursorShape {
+    return this.currentShape;
+  }
+
+  /**
    * Set cursor position (used internally, but can be called externally)
    */
   public setPosition(x: number, y: number): void {
@@ -218,6 +241,7 @@ export class Cursor {
 
     this.element.setAttribute('data-state', this.currentState);
     this.element.setAttribute('data-size', this.currentSize);
+    this.element.setAttribute('data-shape', this.currentShape);
     this.element.setAttribute('aria-hidden', 'true');
     this.element.style.zIndex = this.options.zIndex.toString();
 
