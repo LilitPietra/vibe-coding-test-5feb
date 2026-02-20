@@ -100,6 +100,7 @@ Creates a new cursor instance.
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Initial cursor size |
+| `shape` | `'circle' \| 'square' \| 'rounded-square' \| 'arrow' \| 'pointer'` | `'circle'` | Cursor shape |
 | `initialState` | `CursorState` | `'default'` | Initial cursor state |
 | `enabled` | `boolean` | `true` | Enable/disable custom cursor |
 | `disableOnTouch` | `boolean` | `true` | Auto-disable on touch devices |
@@ -165,6 +166,26 @@ Returns the current cursor size.
 
 ```typescript
 const size = cursor.getSize(); // 'medium'
+```
+
+#### `setShape(shape: CursorShape): void`
+
+Changes the cursor shape.
+
+```typescript
+cursor.setShape('square');
+cursor.setShape('arrow');
+cursor.setShape('pointer');
+```
+
+Available shapes: `'circle'`, `'square'`, `'rounded-square'`, `'arrow'`, `'pointer'`
+
+#### `getShape(): CursorShape`
+
+Returns the current cursor shape.
+
+```typescript
+const shape = cursor.getShape(); // 'circle'
 ```
 
 #### `setPosition(x: number, y: number): void`
